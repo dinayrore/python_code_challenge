@@ -1,14 +1,20 @@
-$(".btn").click(function() {
+var label = $(".btn").text();
 
- var label = $(".btn").text();
+$(".btn-success").click(function() {
 
  if(label == "ADD") {
-   $(".btn").text("NEW");
-   $("#form").hide();
+  //  $("#form").hide();
+  // TODO: POST to DB on success do the same as btn-danger click
  }
  else {
    $(".btn").text("ADD");
    $("#form").show();
  }
+
+});
+
+$(".btn-danger").click(function() {
+  $(".btn-success").text("NEW");
+  $("#form").hide();
 
 });
