@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+class Appointment(models.Model)
+    date = models.DateTimeField('date')
+    time = models.DateTimeField('time')
+    description = models.CharField(max_length=200)
