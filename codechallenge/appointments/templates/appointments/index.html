@@ -11,7 +11,9 @@
   </head>
   <body>
     <div class="container">
-    <button type="button" class="btn btn-lg btn-success">NEW</button>
+      <button type="button" class="btn btn-lg btn-success">NEW</button>
+
+    <!-- {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %} -->
 
       <div class="container" id="form">
         <form role="form">
@@ -34,15 +36,37 @@
           </div>
           <div class="form-group row">
             <div class="col-md-8 col-md-offset-2">
-              <label for="example-search-input">Description</label>
+              <label for="example-text-area">Description</label>
               <input class="form-control" type="search" placeholder="Add Description Here" id="example-search-input">
             </div>
           </div>
         </form>
       </div>
-    </div>
 
-    <div>
+      <div class="container" id="table">
+        <div class="col-md-8">
+          {% if latest_appointment_list %}
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                {% for appointment in latest_appointment_list %}
+                  <td><a href="{{ appointment.id }}/">{{ appointment.description }}</a></td>
+                  {% endfor %}
+                </tr>
+              </tbody>
+          </table>
+          {% else %}
+            <table class"table table-striped" style="display:none">
+          {% endif %}
+        </div>
+      </div>
     </div>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
