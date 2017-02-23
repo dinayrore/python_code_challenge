@@ -8,7 +8,7 @@ $(".btn-success").click(function() {
   // Submit post on submit
   $('#post-form').on('submit', function(event){
       event.preventDefault();
-      console.log("Your appointment is saved")  // sanity check
+      console.log("Your appointment is saved")
       create_post();
   });
  }
@@ -25,17 +25,20 @@ $(".btn-danger").click(function() {
 
 });
 
+
+
+// Another method for AJAX POST?
 $(document).ready(function() {
     $("#post").click(function(e) {
         e.preventDefault();
         var data = {
-            'foo': 'bar'
+            '': ''
         }
 
         $.ajax({
             "type": "POST",
             "dataType": "json",
-            "url": "index",
+            "url": "http://127.0.0.1:8000/",
             "data": data,
             "success": function(result) {
                 console.log(result);
@@ -46,6 +49,40 @@ $(document).ready(function() {
 
 
 
+
+
+
+// AJAX request from Postman
+var form = new FormData();
+form.append("date", "02/22/17");
+form.append("time", "4:49 PM");
+form.append("description", "Enter Data into sqlite db");
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://127.0.0.1:8000/",
+  "method": "POST",
+  "headers": {
+    "cache-control": "no-cache",
+    "postman-token": "124baa8a-0703-ec7d-ca71-cedde46d5ceb"
+  },
+  "processData": false,
+  "contentType": false,
+  "mimeType": "multipart/form-data",
+  "data": form
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+
+
+
+
+
+// Something I need to use CSRF?
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie != '') {
