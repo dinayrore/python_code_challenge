@@ -94,9 +94,13 @@ Please complete the following procedure to run the program on a live system:
   ```
   6. After virtualenv activation is complete, run the following command:
   ```
-  pip install -e django/
+  $ pip install -e django/
   ```
   7. The final command makes Django’s code importable, and the django-admin utility command available as well.
+  8. Migrate the sqlite3 database using the following command:
+  ```
+  $ python manage.py migrate
+  ```
 
 ### Running Web Application Locally
 
