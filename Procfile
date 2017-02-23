@@ -1,1 +1,1 @@
-web: gunicorn $WSGI_PATH --log-file -
+web: gunicorn codechallenge/codechallenge.wsgi --log-file -
