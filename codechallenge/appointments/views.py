@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect
+from django.core import serializers
 
 from .models import Appointment
 
@@ -9,14 +11,18 @@ def index(request):
         description = request.POST['appt_description']
         appt = Appointment(date=date, time=time, description=description)
         appt.save()
+        return HttpResponseRedirect('/')
 
-    # if request.method == 'GET':
-        # TODO: and they want json data from ajax, return json
-
-    latest_appointment_list = Appointment.objects.order_by('-date')[:5]
-    context = {'latest_appointment_list': latest_appointment_list}
+    appointments = Appointment.objects.order_by('-date')
+    context = {'latest_appointment_list': appointments}
     return render(request, 'appointments/index.html', context)
 
-def post(self, request):
-    print("this is a post, pretty sure this never happens")
-    return HttpResponse(json.dumps({'key': 'value'}), mimetype="application/json")
+def getAppointments(request):
+    appointments = Appointment.objects.order_by('-date')
+
+    if 'search' in request.GET:
+        search_term = request.GET['search']
+        appointments = appointments.filter(description__contains=search_term)
+
+    data = serializers.serialize('json', appointments)
+    return HttpResponse(data, content_type='application/json')
