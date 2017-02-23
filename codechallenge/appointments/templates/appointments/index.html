@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
+{% load staticfiles %}
 <html>
   <head>
     <meta charset="utf-8">
@@ -7,64 +7,67 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'appointments/css/style.css' %}" />
     <title>Appointment Manager</title>
-    <!-- <link rel="icon" href="/images/ruby.png"> -->
+    <link rel="icon" href="{% static 'appointments/images/appointment.jpg' %}">
   </head>
   <body>
     <div class="container">
-      <button type="button" class="btn btn-lg btn-success">NEW</button>
+      <div class="row">
+        <button type="button" class="btn btn-lg btn-success">NEW</button>
 
     <!-- {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %} -->
 
-      <div class="container" id="form">
-        <form role="form">
-          <div class="row">
-            <span class="input-group-btn">
-              <button type="button" class="btn-lg btn-danger">CANCEL</button>
-            </span>
-          </div>
-          <div class="form-group row">
-            <div class="col-md-8 col-md-offset-2">
-              <label for="example-date-input">Date</label>
-              <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+        <div class="container" id="form">
+          <form role="form" action="" method="post">
+          {% csrf_token %}
+            <div class="row">
+              <span class="input-group-btn">
+                <button type="button" class="btn-lg btn-danger">CANCEL</button>
+              </span>
             </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-md-8 col-md-offset-2">
-              <label for="example-time-input">Time</label>
-              <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+            <div class="form-group row">
+              <div class="col-md-8 col-md-offset-2">
+                <label for="example-date-input">Date</label>
+                <input class="form-control" type="date" name="checkdate" value="" id="example-date-input">
+              </div>
             </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-md-8 col-md-offset-2">
-              <label for="example-text-area">Description</label>
-              <input class="form-control" type="search" placeholder="Add Description Here" id="example-search-input">
+            <div class="form-group row">
+              <div class="col-md-8 col-md-offset-2">
+                <label for="example-time-input">Time</label>
+                <input class="form-control" type="time" name="checktime" value="" id="example-time-input">
+              </div>
             </div>
-          </div>
-        </form>
-      </div>
+            <div class="form-group row">
+              <div class="col-md-8 col-md-offset-2">
+                <label for="example-text-area">Description</label>
+                <input class="form-control" type="search" placeholder="Add Description Here" id="example-search-input">
+              </div>
+            </div>
+          </form>
+        </div>
 
-      <div class="container" id="table">
-        <div class="col-md-8">
-          {% if latest_appointment_list %}
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                {% for appointment in latest_appointment_list %}
-                  <td><a href="{{ appointment.id }}/">{{ appointment.description }}</a></td>
-                  {% endfor %}
-                </tr>
-              </tbody>
-          </table>
-          {% else %}
-            <table class"table table-striped" style="display:none">
-          {% endif %}
+        <div class="container" id="table">
+          <div class="col-md-8 col-md-offset-2">
+            {% if latest_appointment_list %}
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  {% for appointment in latest_appointment_list %}
+                    <td><a href="{{ appointment.id }}/">{{ appointment.description }}</a></td>
+                    {% endfor %}
+                  </tr>
+                </tbody>
+            </table>
+            {% else %}
+              <table class"table table-striped" style="display:none">
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>
