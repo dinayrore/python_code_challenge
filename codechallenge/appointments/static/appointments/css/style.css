@@ -33,3 +33,12 @@ body {
   position: fixed;
   top: 95px;
 }
+
+#appt-table-container {
+  background-color: #fff;
+  position: fixed;
+  top: 400px;
+  left: 165px;
+  width: 75%;
+  height: 100%;
+}
