@@ -48,12 +48,24 @@ Find Terminal - to run program
 
 Install Homebrew - to store program files properly
   1. Open up Terminal.
-  2. Run `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-  3. Run `brew doctor`
+  2. Run
+  ```
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  ```
+  3. Run
+  ```
+  brew doctor
+  ```
 
 Install Python3 to local directory
-  1. Run brew install readline git python3 direnv tree wget trash bash-completion
-  2. Run sudo easy_install pip
+  1. Run
+  ```
+  brew install readline git python3 direnv tree wget trash bash-completion
+  ```
+  2. Run
+  ```
+  sudo easy_install pip
+  ```
 
 Once you have completed all of the above installation processes your system is ready to launch the program!
 
@@ -61,16 +73,37 @@ Once you have completed all of the above installation processes your system is r
 
 Please complete the following procedure to run the program on a live system:
   1. Open Terminal.
-  2. Change your directory to the one that which you would like to save this project. `$ cd folder_name`
-  3. Then run the commands `$ git clone https://github.com/kteich88/python_code_challenge.git` and `$ cd python_code_challenge`
-  4. Now create a new virtualenv by running: `$ python3 -m venv ~/.virtualenvs/djangodev`
-  5. Finally, activate your virtualenv by running either `$ source ~/.virtualenvs/djangodev/bin/activate` OR `$ . ~/.virtualenvs/djangodev/bin/activate`
-  6. After virtualenv activation is complete, run the following command: `pip install -e django/`
+  2. Change your directory to the one that which you would like to save this project.
+  ```
+  $ cd folder_name
+  ```
+  3. Then run the commands
+  ```
+  $ git clone https://github.com/kteich88/python_code_challenge.git
+  ```
+  ```
+  $ cd python_code_challenge
+  ```
+  4. Now create a new virtualenv by running:
+  ```
+  $ python3 -m venv ~/.virtualenvs/djangodev
+  ```
+  5. Finally, activate your virtualenv by running either
+  ```
+  $ source ~/.virtualenvs/djangodev/bin/activate` OR `$ . ~/.virtualenvs/djangodev/bin/activate
+  ```
+  6. After virtualenv activation is complete, run the following command:
+  ```
+  pip install -e django/
+  ```
   7. The final command makes Django’s code importable, and the django-admin utility command available as well.
 
 ### Running Web Application Locally
 
-  1. To run the web application in a local server use: `$ python manage.py runserver`
+  1. To run the web application in a local server use the following command:
+  ```
+  $ python manage.py runserver
+  ```
   2. You should see `Starting development server at http://127.0.0.1:8000/` in your Terminal.
   3. Go to http://127.0.0.1:8000/ in your web browser to view the application homepage.
 
