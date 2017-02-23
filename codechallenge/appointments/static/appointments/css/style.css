@@ -1,3 +1,25 @@
+body {
+  background-color: #add8e6;
+}
+.container {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+}
+
+.btn-lg.btn-danger {
+  position: fixed;
+  left: 140px;
+  top: 50px;
+}
+
+.col-md-8.col-md-offset-2 {
+    position: relative;
+    top: 35px;
+}
+
 #form {
   display: none;
+  position: fixed;
+  top: 95px;
 }
