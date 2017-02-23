@@ -104,7 +104,11 @@ Please complete the following procedure to run the program on a live system:
   ```
   $ python manage.py runserver
   ```
-  2. You should see `Starting development server at http://127.0.0.1:8000/` in your Terminal.
+  2. In Terminal, you should see the following:
+  ```
+  Django version 1.10.5, using settings 'codechallenge.settings'
+  Starting development server at http://127.0.0.1:8000/
+  ```
   3. Go to http://127.0.0.1:8000/ in your web browser to view the application homepage.
 
 ## Built With
