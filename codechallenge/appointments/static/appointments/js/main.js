@@ -1,12 +1,13 @@
-// TODO: use double quotes
-
-var apptFormContainer = $('#appt-form-container');
-var apptForm = $('#appt-form');
-var newApptBtn = $('#new-appt');
-var cancelApptBtn = $('#cancel-appt');
-var dateInput = $('#appt-date-input');
-var timeInput = $('#appt-time-input');
-var descriptionInput = $('#appt-description-input');
+var apptFormContainer = $("#appt-form-container");
+var apptForm = $("#appt-form");
+var newApptBtn = $("#new-appt");
+var apptSearchInput = $("#appt-search-input");
+var apptSearchBtn = $("#appt-search-btn");
+var cancelApptBtn = $("#cancel-appt");
+var dateInput = $("#appt-date-input");
+var timeInput = $("#appt-time-input");
+var descriptionInput = $("#appt-description-input");
+var apptTableItems = $("#appt-table-items");
 
 newApptBtn.click(function() {
   var btnText = $(this).text();
@@ -23,6 +24,16 @@ cancelApptBtn.click(function() {
   apptFormContainer.hide();
 });
 
+apptSearchBtn.click(function() {
+  getAppointments(apptSearchInput.val());
+});
+
+apptSearchInput.keyup(function(e) {
+  if (e.keyCode == 13) {
+    getAppointments(apptSearchInput.val());
+  }
+});
+
 $(document).ready(function() {
   getAppointments();
 });
@@ -31,34 +42,25 @@ function getAppointments(searchString) {
   $.ajax({
     method: "GET",
     url: "/getAppointments",
-    dataType: "json"
+    dataType: "json",
+    data: { search: searchString }
   }).then(function(appointments) {
-    console.log(appointments);
+    displayAppointments(appointments);
   }).catch(function(err) {
     console.error(err);
-  })
+  });
 }
 
-// // Something I need to use CSRF?
-// function getCookie(name) {
-//     var cookieValue = null;
-//     if (document.cookie && document.cookie != '') {
-//         var cookies = document.cookie.split(';');
-//         for (var i = 0; i < cookies.length; i++) {
-//             var cookie = jQuery.trim(cookies[i]);
-//             if (cookie.substring(0, name.length + 1) == (name + '=')) {
-//                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-//                 break;
-//             }
-//         }
-//     }
-//     return cookieValue;
-// }
-//
-// $.ajaxSetup({
-//     beforeSend: function(xhr, settings) {
-//         if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
-//             xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
-//         }
-//     }
-// });
+function displayAppointments(appointments) {
+  apptTableItems.empty();
+
+  appointments.forEach(function(appointment) {
+    var row = $("<tr>");
+
+    $("<td>").text(appointment.fields.date).appendTo(row);
+    $("<td>").text(appointment.fields.time).appendTo(row);
+    $("<td>").text(appointment.fields.description).appendTo(row);
+
+    row.appendTo(apptTableItems);
+  });
+}
