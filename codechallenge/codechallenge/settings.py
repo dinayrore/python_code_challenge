@@ -124,3 +124,8 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
+
+
+# Whitenoise config
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
