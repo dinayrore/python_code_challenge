@@ -14,12 +14,12 @@
       <div class="row">
         <button type="button" class="btn btn-lg btn-success" id="new-appt">NEW</button>
         <div class="col-md-8 col-md-offset-2">
-           <div class="input-group">
-              <input type="text" class="form-control">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button">SEARCH</button>
-              </span>
-           </div>
+          <div class="input-group">
+            <input type="text" class="form-control" id="appt-search-input">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" id="appt-search-btn">SEARCH</button>
+            </span>
+          </div>
         </div>
 
         <div class="container" id="appt-form-container">
@@ -51,9 +51,9 @@
           </form>
         </div>
 
-        <div class="container" id="table">
+        <div class="container" id="appt-table-container">
           <div class="col-md-8 col-md-offset-2">
-            {% if latest_appointment_list %}
+            <!-- {% if latest_appointment_list %} -->
               <table class="table table-striped">
                 <thead>
                   <tr>
@@ -62,25 +62,25 @@
                     <th>Description</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="appt-table-items">
+                  <!-- {% for appointment in latest_appointment_list %}
                   <tr>
-                  {% for appointment in latest_appointment_list %}
                     <td>{{ appointment.date }}</td>
                     <td>{{ appointment.time }}</td>
                     <td>{{ appointment.description }}</td>
-                  {% endfor %}
                   </tr>
+                  {% endfor %} -->
                 </tbody>
             </table>
-            {% else %}
+            <!-- {% else %}
               <table class"table table-striped" style="display:none">
-            {% endif %}
+            {% endif %} -->
           </div>
         </div>
       </div>
     </div>
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="{% static 'appointments/js/main.js' %}"></script>
   </body>
 </html>
