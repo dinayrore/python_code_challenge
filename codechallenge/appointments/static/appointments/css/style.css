@@ -1,6 +1,7 @@
 body {
   background-color: #add8e6;
 }
+
 .container {
   position: fixed;
   top: 50px;
@@ -13,12 +14,21 @@ body {
   top: 50px;
 }
 
-.col-md-8.col-md-offset-2 {
-    position: relative;
-    top: 35px;
+.btn-lg.btn-success {
+  float: left;
 }
 
-#form {
+.input-group {
+  position: relative;
+  top: -25px;
+}
+
+.col-md-8.col-md-offset-2 {
+  position: relative;
+  top: 35px;
+}
+
+#appt-form-container {
   display: none;
   position: fixed;
   top: 95px;
