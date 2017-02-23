@@ -15,8 +15,8 @@ class Migration(migrations.Migration):
             name='Appointment',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('date', models.DateTimeField(verbose_name='date')),
-                ('time', models.DateTimeField(verbose_name='time')),
+                ('date', models.DateField(verbose_name='date')),
+                ('time', models.TimeField(verbose_name='time')),
                 ('description', models.CharField(max_length=200)),
             ],
         ),
