@@ -23,7 +23,7 @@ body {
 }
 
 #appt-form-container {
-  display: none;
+  visibility: hidden;
   position: relative;
   top: 50px;
 }
