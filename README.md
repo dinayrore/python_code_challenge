@@ -33,6 +33,8 @@ There are 3 types of requests that the back end Python script handles from the b
 
 This README is hosted on Github pages at: https://kteich88.github.io/python_code_challenge/
 
+Django app viewable on: https://appointment-manager-app.herokuapp.com/
+
 ## Getting Started
 
 The instructions below will help you retrieve a copy of the project to run on your local machine through the Terminal application. Please see deployment for notes on how to deploy the project on a live system.  The instructions provided are for macbook users only.
@@ -90,11 +92,18 @@ Please complete the following procedure to run the program on a live system:
   ```
   5. Finally, activate your virtualenv by running either
   ```
-  $ source ~/.virtualenvs/djangodev/bin/activate` OR `$ . ~/.virtualenvs/djangodev/bin/activate
+  $ source ~/.virtualenvs/djangodev/bin/activate`  
   ```
-  6. After virtualenv activation is complete, run the following command:
+  OR
+  ```
+  $ . ~/.virtualenvs/djangodev/bin/activate
+  ```
+  6. After virtualenv activation is complete, run the following commands:
   ```
   $ pip install -e django/
+  ```
+  ```
+  $ pip install -r requirements.txt
   ```
   7. The final command makes Django’s code importable, and the django-admin utility command available as well.
   8. Migrate the sqlite3 database using the following command:
