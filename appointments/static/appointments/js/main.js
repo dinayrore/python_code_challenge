@@ -16,12 +16,14 @@ newApptBtn.click(function() {
   } else {
     newApptBtn.text("ADD");
     apptFormContainer.show();
+    cancelApptBtn.show();
   }
 });
 
 cancelApptBtn.click(function() {
   newApptBtn.text("NEW");
   apptFormContainer.hide();
+  cancelApptBtn.hide();
 });
 
 apptSearchBtn.click(function() {

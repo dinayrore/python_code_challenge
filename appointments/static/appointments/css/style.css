@@ -2,25 +2,8 @@ body {
   background-color: #add8e6;
 }
 
-.container {
-  position: fixed;
-  top: 50px;
-  left: 50px;
-}
-
-.btn-lg.btn-danger {
-  position: fixed;
-  left: 140px;
-  top: 50px;
-}
-
-.btn-lg.btn-success {
-  float: left;
-}
-
 .input-group {
-  position: relative;
-  top: -25px;
+  top: 35px;
 }
 
 .col-md-8.col-md-offset-2 {
@@ -28,15 +11,30 @@ body {
   top: 35px;
 }
 
+#button-container {
+  float: left;
+  position: relative;
+  left: 10px;
+  top: 50px;
+}
+
+#cancel-appt {
+  display: none;
+}
+
 #appt-form-container {
   display: none;
-  position: fixed;
-  top: 95px;
+  position: relative;
+  top: 50px;
+}
+
+#appt-search {
+  position: relative;
+  top: 50px;
 }
 
 #appt-table-container {
-  background-color: #fff;
-  position: fixed;
+  position: relative;
   top: 400px;
   left: 165px;
   width: 75%;
